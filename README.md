@@ -1,2 +1,0 @@
-# masters
-Masters project works
