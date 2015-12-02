@@ -5,6 +5,7 @@ import scipy
 import scipy.stats as sp
 from sh import cd
 
+
 class Masters_python:
 
 # Functions
