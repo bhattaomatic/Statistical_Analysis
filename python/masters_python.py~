@@ -8,6 +8,10 @@ from sh import cd
 
 class Masters_python:
 
+#	def __init__(self):
+		
+
+
 # Functions
 
 	def gauss_fit_2(self, s, bin1):
