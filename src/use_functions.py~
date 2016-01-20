@@ -5,7 +5,7 @@ import numpy as np
 #import scipy
 #import scipy.stats as sp
 from sh import cd
-from Curve_Fitting import Curve_Fitting
+from Statistical_Analysis import Statistical_Analysis
 
 
 
@@ -17,7 +17,7 @@ hello = len(test_data)
 test_data = np.reshape(test_data[0:hello],(hello/40,40))
 
 
-face = Curve_Fitting()
+face = Statistical_Analysis()
 name = [ 'test_data']
 
 for names in name:
