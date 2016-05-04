@@ -59,13 +59,13 @@ ax3.legend(loc='best')
 
 # Lognorm Distribution
 lognorm_mean = [0, 0, 0, 1, 2]
-lognorm_variance = [0.2, 0.5, 1, 2, 5]
-lognorm_sigma = np.sqrt(lognorm_variance)
+lognorm_sigma = [0.2, 0.5, 1, 2, 5]
+#lognorm_sigma = np.sqrt(lognorm_variance)
 lognorm_x = np.linspace(0,10,100)
 lognorm_shape = 1
 for i in range(len(lognorm_sigma)):
 	rv = st.lognorm(lognorm_shape, loc=lognorm_mean[i], scale=lognorm_sigma[i])
-	ax4.plot(rv.pdf(lognorm_x), linewidth=4, label='$\mu=%0.1f, \sigma=%0.1f $' %(lognorm_mean[i], lognorm_variance[i]))
+	ax4.plot(rv.pdf(lognorm_x), linewidth=4, label='$\mu=%0.1f, \sigma=%0.1f $' %(lognorm_mean[i], lognorm_sigma[i]))
 ax4.set_title('Lognormal Distribution', fontsize=26)
 ax4.set_xlabel('X', fontsize=22)
 ax4.set_ylabel('Probability', fontsize=22)
