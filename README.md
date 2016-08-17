@@ -1,5 +1,4 @@
-# Statistical_Analysis
-Analysis of the received data from https://github.com/bhattaomatic/gr-gsm-CE
+# Statistical Analysis
 
 This repository contains details of analysis of the data received by the CommSense system.
 
