@@ -34,6 +34,9 @@ tr = np.arange(0,1,0.1)		# The reflected path signal.
 #tr = [0.6, 1.6]	# The reflected path signal Causes trouble when td = 0.1.
 #tr = [0.5, 1.5, 2.5, 3.5]	# The reflected path signal Causes trouble when td = 0.0.
 
+
+####################################### TX signal with sine wave (no modulation) #######################################
+
 # Specific variables for sinusoidal transmit signal
 T = 2						# total duration for the signal to be transmitted.
 t = np.arange(0,T,0.01)		# time variable to sample the tx signal.
@@ -58,6 +61,9 @@ for i in range(0,len(tr)):
 	plt.show()			# Display the plot.
 
 plt.ioff()				# Intreactive mode off.
+
+
+####################################### TX signal with Barker Code (BPSK modulation) #######################################
 
 # Specific variables when Barker code is used as transmit signal with BPSK modulation.
 T_barker = 1						# total duration.
@@ -97,6 +103,9 @@ for i in range(0,len(tr)):
 
 plt.ioff()				# Intreactive mode off.
 #plt.show()
+
+
+####################################### TX signal with training sequence (GMSK modulation) #######################################
 
 # GSM Training Sequence based simulations
 train_seq = [0,0,1,0,0,1,0,1,1,1,0,0,0,0,1,0,0,0,1,0,0,1,0,1,1,1];   #Training Sequence(1 of 8 available in GSM)

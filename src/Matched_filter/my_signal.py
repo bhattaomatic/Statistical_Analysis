@@ -1,6 +1,6 @@
 import numpy as np
 from scipy import special
-import matplotlib.pyplot as plt
+#import matplotlib.pyplot as plt
 
 class mysignal(object):
 	"""
