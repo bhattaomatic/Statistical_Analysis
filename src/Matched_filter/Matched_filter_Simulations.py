@@ -110,11 +110,13 @@ plt.ioff()				# Intreactive mode off.
 # GSM Training Sequence based simulations
 train_seq = [0,0,1,0,0,1,0,1,1,1,0,0,0,0,1,0,0,0,1,0,0,1,0,1,1,1];   #Training Sequence(1 of 8 available in GSM)
 #train_seq = [1,0,1,1,1,0,0,0,0,1,0,0,0,1,0,0]		# usually in communication system the central 16 bits of the training sequence is used.
-# Needed to make the time parameter matrix of same length.
+
+# Needed to make the time array of same length as the upsampled training sequence.
 if len(train_seq) == 16:
 	T_train_seq = 1.6			# total duration for the signal to be transmitted.
 elif len(train_seq) == 26:
 	T_train_seq = 2.1			# total duration for the signal to be transmitted.
+
 sps = 4
 ts = T_train_seq/sps
 t = np.arange(0,T_train_seq,0.01)		# time variable to sample the tx signal.
