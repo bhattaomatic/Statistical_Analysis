@@ -31,7 +31,7 @@ ut = np.exp(1j*wc*phi)		# Complex envelope of the signal.
 td = 0.1					# Direct path signal.
 tr = np.arange(0,1,0.1)		# The reflected path signal.
 #tr = [0.1, 0.3, 0.5, 0.75, 1, 1.2, 1.4, 1.6, 2]	# The reflected path signal.
-#tr = [0.6, 1.6, 2.6, 3.6]	# The reflected path signal Causes trouble when td = 0.1.
+#tr = [0.6, 1.6]	# The reflected path signal Causes trouble when td = 0.1.
 #tr = [0.5, 1.5, 2.5, 3.5]	# The reflected path signal Causes trouble when td = 0.0.
 
 # Specific variables for sinusoidal transmit signal
@@ -100,7 +100,12 @@ plt.ioff()				# Intreactive mode off.
 
 # GSM Training Sequence based simulations
 train_seq = [0,0,1,0,0,1,0,1,1,1,0,0,0,0,1,0,0,0,1,0,0,1,0,1,1,1];   #Training Sequence(1 of 8 available in GSM)
-T_train_seq = 1.3			# total duration for the signal to be transmitted.
+#train_seq = [1,0,1,1,1,0,0,0,0,1,0,0,0,1,0,0]		# usually in communication system the central 16 bits of the training sequence is used.
+# Needed to make the time parameter matrix of same length.
+if len(train_seq) == 16:
+	T_train_seq = 1.6			# total duration for the signal to be transmitted.
+elif len(train_seq) == 26:
+	T_train_seq = 2.1			# total duration for the signal to be transmitted.
 sps = 4
 ts = T_train_seq/sps
 t = np.arange(0,T_train_seq,0.01)		# time variable to sample the tx signal.
@@ -109,6 +114,7 @@ GMSK_transmit = m.gsm_train_seq(train_seq,BT,sps,T_train_seq, t, wc,ts)
 
 GMSK_receive_td = m.gsm_train_seq(train_seq,BT,sps,T_train_seq, (t-td), fc,ts)
 matched_gmsk = np.flipud(GMSK_transmit)
+
 
 plt.ion()				# Initializes interactive mode in the plot.
 for i in range(0,len(tr)):
@@ -122,9 +128,10 @@ for i in range(0,len(tr)):
 #	plt.ylim([0, 1.2])	# Set the Y axis limit.
 	plt.legend()		# Prints the legend in the plot.
 	plt.draw()			# Draws the graph in the current figure, useful in interactive mode.
-#	m.pause()				# Waits for <ENTER> key press to continue, if enabled comment the time.sleep() command.
-	time.sleep(1)		# Waits for 1 second before continuing.
+	m.pause()				# Waits for <ENTER> key press to continue, if enabled comment the time.sleep() command.
+#	time.sleep(1)		# Waits for 1 second before continuing.
 	plt.clf()			# This clears the previous plot in the figure, comment this to see all plots.
 	plt.show()			# Shows the plot.
-
+#m.pause()
 plt.ioff()				# Intreactive mode off.
+
