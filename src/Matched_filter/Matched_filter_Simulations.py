@@ -3,7 +3,12 @@
 """
 Author: Abhishek Bhatta
 
-This is the final file for matched filtering using various different types of data
+This is the final file for matched filtering using various different types of data.
+
+The transmit signals here are 
+1. Sine wave with no modulation.
+2. Barker Code with BPSK modulation.
+3. GSM Training Sequence with GMSK modulation.
 
 Check for different values of reflected path in case of a specific direct path signal.
 There is some anomalies.
@@ -59,7 +64,7 @@ for i in range(0,len(tr)):
 	time.sleep(1)		# Waits for 1 second before continuing.
 	plt.clf()			# This clears the previous plot in the figure, comment this to see all plots.
 	plt.show()			# Display the plot.
-
+#m.pause()			# Waits for <ENTER> key press to continue if activated disable time.sleep().
 plt.ioff()				# Intreactive mode off.
 
 
@@ -100,9 +105,8 @@ for i in range(0,len(tr)):
 	time.sleep(1)		# Waits for 1 second before continuing.
 	plt.clf()			# This clears the previous plot in the figure, comment this to see all plots.
 	plt.show()			# Shows the plot.
-
+#m.pause()			# Waits for <ENTER> key press to continue if activated disable time.sleep().
 plt.ioff()				# Intreactive mode off.
-#plt.show()
 
 
 ####################################### TX signal with training sequence (GMSK modulation) #######################################
