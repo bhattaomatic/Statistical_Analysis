@@ -26,7 +26,7 @@ This contains description of all the transmit signals generated to calculate the
 
 ####################################### TX signal with Barker Code (BPSK modulation) #######################################
 
-	def barker_tx_signal(self,barker, angular_freq, t, phase):
+	def barker_tx_signal(self,barker, angular_freq, t, phase, complex_env):
 		p1 = 0
 		p2 = np.pi
 		T = len(barker)
@@ -42,9 +42,9 @@ This contains description of all the transmit signals generated to calculate the
 			barker_code = np.append(barker_code, bit)
 		#Generating the BPSK signal
 			if barker[i] == 0:
-				bit = np.sin(angular_freq*t+p1);
+				bit = complex_env*np.sin(angular_freq*t+p1);
 			else:
-				bit = np.sin(angular_freq*t+p2);
+				bit = complex_env*np.sin(angular_freq*t+p2);
 		
 			BPSK = np.append(BPSK, bit);
 		return BPSK

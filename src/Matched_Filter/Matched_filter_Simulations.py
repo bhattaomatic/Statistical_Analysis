@@ -74,10 +74,10 @@ plt.ioff()				# Intreactive mode off.
 T_barker = 1						# total duration.
 t_barker = np.arange(0,T_barker,0.1)		# time variable to sample the signal at proper instance.
 barker = [1,1,1,1,1,0,0,1,1,0,1,0,1]
-
-BPSK_transmit = m.barker_tx_signal(barker, wc, t_barker, phi)
+ut_barker = 1
+BPSK_transmit = m.barker_tx_signal(barker, wc, t_barker, phi, ut_barker)
 matched_BPSK = np.flipud(BPSK_transmit)
-BPSK_receive_td = m.barker_tx_signal(barker, wc, (t_barker-td), phi)
+BPSK_receive_td = m.barker_tx_signal(barker, wc, (t_barker-td), phi, ut_barker)
 
 #fig = plt.figure()
 #ax1 = fig.add_subplot(211)
@@ -91,7 +91,7 @@ BPSK_receive_td = m.barker_tx_signal(barker, wc, (t_barker-td), phi)
 
 plt.ion()				# Initializes interactive mode in the plot.
 for i in range(0,len(tr)):
-	BPSK_receive_tr = m.barker_tx_signal(barker, wc, (t_barker-tr[i]), phi) # Received signal with just one reflected path.
+	BPSK_receive_tr = m.barker_tx_signal(barker, wc, (t_barker-tr[i]), phi, ut_barker) # Received signal with just one reflected path.
 	BPSK_receive = BPSK_receive_tr + BPSK_receive_td	# Rx signal with direct path and one reflected path.
 	output = np.convolve(matched_BPSK, BPSK_receive)	# Output of the matched filter
 	abs_out_real = np.abs(np.real(output))			# Taking absolute of the real part of the matched filter output.
