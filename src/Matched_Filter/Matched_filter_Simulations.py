@@ -57,7 +57,7 @@ for i in range(0,len(tr)):
 # Plotting
 	plt.plot(np.multiply(abs_out_real,1/np.max(abs_out_real)), label = '%s' %tr[i], linewidth =1)	# Plots the matched filter output.
 #	plt.ylim([0, 1.2])	# Set the Y axis limit.
-	plt.title('Sine wave with td and tr', fontsize=25)
+	plt.title('Sine wave with td=%s and tr' %td, fontsize=25)
 	plt.legend()		# Prints the legend in the plot.
 	plt.draw()			# Draws the graph in the current figure, useful in interactive mode.
 #	m.pause()			# Waits for <ENTER> key press to continue if activated disable time.sleep().
@@ -97,7 +97,7 @@ for i in range(0,len(tr)):
 	abs_out_real = np.abs(np.real(output))			# Taking absolute of the real part of the matched filter output.
 # Plotting
 	plt.plot(np.multiply(abs_out_real,1/np.max(abs_out_real)), label = '%s' %tr[i], linewidth =1)	# Plots the figure.
-	plt.title('Barker Code 13 with td and tr', fontsize=25)
+	plt.title('Barker Code 13 with td=%s and tr' %td, fontsize=25)
 #	plt.ylim([0, 1.2])	# Set the Y axis limit.
 	plt.legend()		# Prints the legend in the plot.
 	plt.draw()			# Draws the graph in the current figure, useful in interactive mode.
@@ -139,7 +139,7 @@ for i in range(0,len(tr)):
 	abs_out_real = np.abs(np.real(output))			# Taking absolute of the real part of the matched filter output.
 # Plotting
 	plt.plot(np.multiply(abs_out_real,1/np.max(abs_out_real)), label = '%s' %tr[i], linewidth =1)	# Plots the figure.
-	plt.title('Training Sequence with td and tr', fontsize=25)
+	plt.title('Training Sequence with td=%s and tr' %td, fontsize=25)
 #	plt.ylim([0, 1.2])	# Set the Y axis limit.
 	plt.legend()		# Prints the legend in the plot.
 	plt.draw()			# Draws the graph in the current figure, useful in interactive mode.
