@@ -168,14 +168,14 @@ train_seq = [1,0,1,1,1,0,0,0,0,1,0,0,0,1,0,0]		# usually in communication system
 
 # Needed to make the time array of same length as the upsampled training sequence.
 if len(train_seq) == 16:
-	T_train_seq = 0.16			# total duration for the signal to be transmitted.
+	T_train_seq = 1.6			# total duration for the signal to be transmitted.
 elif len(train_seq) == 26:
-	T_train_seq = 0.21			# total duration for the signal to be transmitted.
+	T_train_seq = 2.1			# total duration for the signal to be transmitted.
 
 sps = 4
 ts = T_train_seq/sps
-t = np.arange(0,T_train_seq,0.001)		# time variable to sample the tx signal.
-t_mf_train = np.arange(-T_train_seq, T_train_seq-0.0011, 0.001)
+t = np.arange(0,T_train_seq,0.01)		# time variable to sample the tx signal.
+t_mf_train = np.arange(-T_train_seq, T_train_seq-0.011, 0.01)
 BT = 0.3
 B_train = BT/T_train_seq
 fs_train = 2*B_train
